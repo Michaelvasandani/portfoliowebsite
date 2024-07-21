@@ -3,7 +3,12 @@ body {
     margin: 0;
     padding: 0;
     background-color: #002350;
+    
     color: white;
+}
+
+.elipses {
+    z-index: -1;
 }
 
 header {
@@ -12,19 +17,25 @@ header {
     justify-content: left;
     padding: 10px;
     background-color: #002350;
+
 }
 
 header .name {
     font-size: 24px;
     margin: 0;
     padding: 0;
+    z-index: 1;
+    position: relative;
 }
+
+
 
 main {
     width: 80%;
     max-width: 1200px;
     margin: 20px auto;
     background-color: #002350;
+    
     padding: 20px;
     border-radius: 8px;
 }
@@ -46,7 +57,7 @@ main {
 }
 
 .introduction {
-    text-align: left;
+    text-align: center;
     margin-top: 200px;
 }
 
@@ -56,15 +67,15 @@ main {
 }
 
 .intro-image {
-    width: 400px;
+    width: 450px;
     margin-right: 20px;
 }
 
 .info {
     font-size: 90px;
-    margin-left: 100px;
-    text-align: left;
-}
+    margin-left: 150px;
+    text-align: center;
+}   
 
 .university {
     display: flex;
