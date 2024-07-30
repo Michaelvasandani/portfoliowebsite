@@ -34,7 +34,7 @@
                     <div class = "card">
                         <h1>Upload</h1>
                         <p>Any picture you want</p>
-                        <img src="images/blank-profile-picture-973460_960_720.webp " id = "profile-pic">
+                        <img src="" alt = "preview" id = "profile-pic">
                         <label for = "input-file">update image</label>
                         <input type = "file" accept = "image/jpeg, image/png, image/jpg" id = "input-file">
                     </div>
@@ -44,12 +44,30 @@
         
     </main>
     <script>
-    let profilePic = document.getElementById("profile-pic");
-    let inputFile = document.getElementById("input-file");
+        document.querySelector("#input-file").addEventListener("change", function() {
+            const reader = new FileReader();
+    
+            reader.addEventListener("load", () => {
+                localStorage.setItem("recent-image", reader.result);
+            })
+            
+            reader.readAsDataURL(this.files[0]);
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const recentImageDataUrl = localStorage.getItem("recent-image");
+    
+            if (recentImageDataUrl) {
+                document.querySelector("#profile-pic").setAttribute("src", recentImageDataUrl);
+            }
+        })
+        let profilePic = document.getElementById("profile-pic");
+        let inputFile = document.getElementById("input-file");
+    
+        inputFile.onchange = function() {
+            profilePic.src = URL.createObjectURL(inputFile.files[0]);
+        }
 
-    inputFile.onchange = function() {
-        profilePic.src = URL.createObjectURL(inputFile.files[0]);
-    }
+    
     </script>
 </body>
 </html>
