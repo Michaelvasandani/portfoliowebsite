@@ -7,8 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class = "header">
         <h1 class="name">Michael Sagar Vasandani</h1>
+
+        <nav class = "navbar">
+            <a href="index.html">Main</a>
+            <a href="contact.html">Contact</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
     </header>
     <main>
         <section class="welcome-section">
@@ -43,31 +49,6 @@
         </section>
         
     </main>
-    <script>
-        document.querySelector("#input-file").addEventListener("change", function() {
-            const reader = new FileReader();
-    
-            reader.addEventListener("load", () => {
-                localStorage.setItem("recent-image", reader.result);
-            })
-            
-            reader.readAsDataURL(this.files[0]);
-        });
-        document.addEventListener("DOMContentLoaded", () => {
-            const recentImageDataUrl = localStorage.getItem("recent-image");
-    
-            if (recentImageDataUrl) {
-                document.querySelector("#profile-pic").setAttribute("src", recentImageDataUrl);
-            }
-        })
-        let profilePic = document.getElementById("profile-pic");
-        let inputFile = document.getElementById("input-file");
-    
-        inputFile.onchange = function() {
-            profilePic.src = URL.createObjectURL(inputFile.files[0]);
-        }
-
-    
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
